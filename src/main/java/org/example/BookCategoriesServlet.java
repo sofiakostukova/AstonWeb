@@ -41,11 +41,11 @@ public class BookCategoriesServlet extends HttpServlet {
             ResultSet rs = st.executeQuery();
 
             if (rs.next()) {
-                // Пример получения данных из результата запроса
+             
                 int fetchedBookId = rs.getInt("book_id");
                 int fetchedCategoryId = rs.getInt("category_id");
 
-                // Создание JSON-ответа
+             
                 String jsonResponse = String.format("{\"book_id\": %d, \"category_id\": %d\"}",
                         fetchedBookId, fetchedCategoryId);
 
