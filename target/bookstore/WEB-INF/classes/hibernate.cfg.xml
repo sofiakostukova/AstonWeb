@@ -20,9 +20,10 @@
         <mapping class="org.example.models.Book"/>
         <mapping class="org.example.models.Category"/>
         <mapping class="org.example.models.Author"/>
-        <mapping class="org.example.users.User"/>
-        <mapping class="org.example.users.Admin"/>
-        <mapping class="org.example.users.Moderator"/>
-        <mapping class="org.example.users.Customer"/>
+        <mapping class="org.example.models.User"/>
+        <mapping class="org.example.models.Admin"/>
+        <mapping class="org.example.models.Moderator"/>
+        <mapping class="org.example.models.Customer"/>
+
     </session-factory>
 </hibernate-configuration>

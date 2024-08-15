@@ -1,10 +1,13 @@
 package org.example.services;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.example.models.Author;
 import org.example.utils.HibernateUtil;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +19,6 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "AuthorsServlet", urlPatterns = "/api/authors")
 public class AuthorsServlet extends HttpServlet {
-
     private SessionFactory sessionFactory;
 
     @Override
@@ -27,20 +29,28 @@ public class AuthorsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int authorId = Integer.parseInt(request.getParameter("id"));
-        Author author = getAuthorById(authorId);
+        try {
+            int authorId = Integer.parseInt(request.getParameter("id"));
+            Author author = getAuthorById(authorId);
 
-        if (author == null) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            response.getWriter().write("Author not found for id: " + authorId);
-            return;
+            if (author == null) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.getWriter().write("Author not found for id: " + authorId);
+                return;
+            }
+
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(Author.class, new AuthorSerializer())
+                    .create();
+            out.print(gson.toJson(author));
+            out.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("Error occurred while processing request: " + e.getMessage());
         }
-
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        Gson gson = new Gson();
-        out.print(gson.toJson(author));
-        out.flush();
     }
 
     @Override
@@ -58,14 +68,31 @@ public class AuthorsServlet extends HttpServlet {
             response.getWriter().write("Invalid action specified.");
         }
     }
-
+/*
     private Author getAuthorById(int id) {
         try (Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
-            Author author = session.get(Author.class, id);
+            Query<Author> query = session.createQuery("SELECT a FROM Author a LEFT JOIN FETCH a.books WHERE a.id = :id", Author.class);
+            query.setParameter("id", id);
+            Author author = query.uniqueResult();
             session.getTransaction().commit();
             return author;
         } catch (Exception e) {
+            System.out.println("Error getting author by ID: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }*/
+    private Author getAuthorById(int id) {
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            System.out.println("Getting author by ID: " + id);
+            Author author = session.get(Author.class, id);
+            System.out.println("Author found: " + author);
+            session.getTransaction().commit();
+            return author;
+        } catch (Exception e) {
+            System.out.println("Error getting author by ID: " + e.getMessage());
             e.printStackTrace();
             return null;
         }

@@ -1,11 +1,13 @@
 package org.example.services;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.example.models.Author;
 import org.example.models.Book;
 import org.example.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.proxy.HibernateProxy;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +41,9 @@ public class BooksServlet extends HttpServlet {
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Book.class, new BookSerializer())
+                .create();
         out.print(gson.toJson(book));
         out.flush();
     }

@@ -7,6 +7,10 @@
         <class>org.example.models.Book</class>
         <class>org.example.models.Author</class>
         <class>org.example.models.Category</class>
+        <class>org.example.models.User</class>
+        <class>org.example.models.Admin</class>
+        <class>org.example.models.Moderator</class>
+        <class>org.example.models.Customer</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/bookstore"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

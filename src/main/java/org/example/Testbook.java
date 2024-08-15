@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 
 @WebServlet(name = "testbook", urlPatterns = "/testbook")
 public class Testbook extends HttpServlet {
-// Testbook был с маленькой буквы, классы пишутся с большой
     private SessionFactory sessionFactory;
 
     @Override

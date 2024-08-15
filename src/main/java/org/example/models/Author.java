@@ -26,6 +26,9 @@ public class Author {
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Book> books;
 
+    public Set<Book> getBooks() {
+        return books;
+    }
     public int getId() {
         return id;
     }
