@@ -1,6 +1,6 @@
 package org.example.users;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @DiscriminatorValue("moderator")
 @Entity

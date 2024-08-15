@@ -9,8 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet(name = "testbook", urlPatterns = "/testbook")
-public class testbook extends HttpServlet {
-
+public class Testbook extends HttpServlet {
+// Testbook был с маленькой буквы, классы пишутся с большой
     private SessionFactory sessionFactory;
 
     @Override
@@ -21,6 +21,7 @@ public class testbook extends HttpServlet {
             session.createQuery("FROM Book").list();
             session.getTransaction().commit();
         } catch (Exception e) {
+//            printStackTrace лучше не печатать, подключи логирование с помощью @Slf4j от ломбока
             e.printStackTrace();
             throw new ServletException("Failed to connect to the database", e);
         }
