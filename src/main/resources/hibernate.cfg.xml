@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/bookstore?currentSchema=public</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">rootlox</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.polymorphism">explicit</property>
+        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="hibernate.logging.level">DEBUG</property>
+
+        <mapping class="org.example.models.Book"/>
+        <mapping class="org.example.models.Category"/>
+        <mapping class="org.example.models.Author"/>
+        <mapping class="org.example.users.User"/>
+        <mapping class="org.example.users.Admin"/>
+        <mapping class="org.example.users.Moderator"/>
+        <mapping class="org.example.users.Customer"/>
+    </session-factory>
+</hibernate-configuration>

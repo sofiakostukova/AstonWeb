@@ -9,5 +9,8 @@
         <module name="bookstore" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AstonWeb" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
