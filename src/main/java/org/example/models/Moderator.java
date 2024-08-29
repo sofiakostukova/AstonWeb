@@ -14,6 +14,7 @@ public class Moderator extends User {
     @Column(name = "moderator_role")
     private String moderatorRole;
 
+
     public String getModeratorRole() {
         return moderatorRole;
     }

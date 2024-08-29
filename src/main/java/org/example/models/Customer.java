@@ -14,6 +14,7 @@ public class Customer extends User {
     @Column(name = "customer_type")
     private String customerType;
 
+
     public String getCustomerType() {
         return customerType;
     }

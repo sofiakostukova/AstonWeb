@@ -31,6 +31,10 @@ public class Category {
     )
     private List<Book> books;
 
+    public Category(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

@@ -41,6 +41,19 @@ public class Book {
 
     public Book() {}
 
+    public Book(String title) {
+        this.title = title;
+    }
+
+    public Book(String title, int publicationYear, Author author, int price, List<Category> categories) {
+        this.title = title;
+        this.publicationYear = publicationYear;
+        this.author = author;
+        this.price = price;
+        this.categories = categories;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -79,5 +92,13 @@ public class Book {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }
