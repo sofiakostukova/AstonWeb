@@ -60,7 +60,7 @@ public class AdminServiceTest {
 
     @Test
     public void testReadAdmin() {
-        Admin admin = service.getAdminById(3);
+        Admin admin = service.getAdminById(2);
         assertNotNull(admin);
         assertEquals("Updated Test admin role", admin.getAdminRole());
     }

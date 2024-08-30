@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.models.Author;
-import org.example.repository.interf.AuthorRepository;
+import org.example.repository.impl.AuthorRepositoryImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 public class AuthorService {
     @Autowired
-    private AuthorRepository authorRepository;
+    private AuthorRepositoryImpl authorRepository;
 
-    public AuthorService(AuthorRepository repository) {
+    public AuthorService(AuthorRepositoryImpl repository) {
         this.authorRepository = repository;
     }
 

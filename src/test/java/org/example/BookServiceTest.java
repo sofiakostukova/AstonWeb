@@ -51,26 +51,26 @@ public class BookServiceTest {
 
     @Test
     public void testUpdateBook() {
-        Book book = service.getBookById(7);
+        Book book = service.getBookById(8);
         assertNotNull(book);
         book.setTitle("Updated Test book");
         service.updateBook(book);
-        Book updatedBook = service.getBookById(7);
+        Book updatedBook = service.getBookById(8);
         assertNotNull(updatedBook);
         assertEquals("Updated Test book", updatedBook.getTitle());
     }
 
     @Test
     public void testReadBook() {
-        Book book = service.getBookById(7);
+        Book book = service.getBookById(8);
         assertNotNull(book);
         assertEquals("Updated Test book", book.getTitle());
     }
 
     @Test
     public void testDeleteBook() {
-        Book bookBeforeDeletion = service.getBookById(7);
+        Book bookBeforeDeletion = service.getBookById(8);
         assertNotNull(bookBeforeDeletion);
-        service.deleteBook(7);
+        service.deleteBook(8);
     }
 }

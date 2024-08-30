@@ -1,14 +1,14 @@
 package org.example.service;
 
 import org.example.models.Admin;
-import org.example.repository.interf.AdminRepository;
+import org.example.repository.impl.AdminRepositoryImpl;
 
 import java.util.List;
 
 public class AdminService {
-    private AdminRepository adminRepository;
+    private AdminRepositoryImpl adminRepository;
 
-    public AdminService(AdminRepository repository) {
+    public AdminService(AdminRepositoryImpl repository) {
         this.adminRepository = repository;
     }
 

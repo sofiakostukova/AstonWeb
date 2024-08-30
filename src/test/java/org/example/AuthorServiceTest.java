@@ -51,11 +51,11 @@ public class AuthorServiceTest {
 
     @Test
     public void testUpdateAuthor() {
-        Author author = service.getAuthorById(25);
+        Author author = service.getAuthorById(28);
         assertNotNull(author);
         author.setName("Updated Test author");
         service.updateAuthor(author);
-        Author updatedAuthor = service.getAuthorById(25);
+        Author updatedAuthor = service.getAuthorById(28);
         assertNotNull(updatedAuthor);
         assertEquals("Updated Test author", updatedAuthor.getName());
     }
@@ -64,15 +64,15 @@ public class AuthorServiceTest {
     public void testReadAuthor() {
         Author author = service.getAuthorById(25);
         assertNotNull(author);
-        assertEquals("Test author", author.getName());
+        assertEquals("Updated Test author", author.getName());
     }
 
 
     @Test
     public void testDeleteAuthor() {
-        Author authorBeforeDeletion = service.getAuthorById(24);
+        Author authorBeforeDeletion = service.getAuthorById(28);
         assertNotNull(authorBeforeDeletion);
-        service.deleteAuthor(24);
+        service.deleteAuthor(28);
 
     }
 }

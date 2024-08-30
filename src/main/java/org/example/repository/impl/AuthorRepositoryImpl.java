@@ -1,7 +1,8 @@
 package org.example.repository.impl;
 
 import org.example.models.Author;
-import org.example.repository.interf.AuthorRepository;
+
+import org.example.repository.interf.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 @Repository
-public class AuthorRepositoryImpl implements AuthorRepository {
+public class AuthorRepositoryImpl implements GenericRepository<Author> {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired

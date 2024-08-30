@@ -1,7 +1,7 @@
 package org.example.repository.impl;
 
 import org.example.models.Category;
-import org.example.repository.interf.CategoryRepository;
+import org.example.repository.interf.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class CategoryRepositoryImpl implements CategoryRepository {
+public class CategoryRepositoryImpl implements GenericRepository<Category> {
     private JdbcTemplate jdbcTemplate;
 
     @Autowired

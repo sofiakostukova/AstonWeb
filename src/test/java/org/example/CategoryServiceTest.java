@@ -49,26 +49,26 @@ public class CategoryServiceTest {
 
     @Test
     public void testUpdateCategory() {
-        Category category = service.getCategoryById(5);
+        Category category = service.getCategoryById(6);
         assertNotNull(category);
         category.setName("Updated Test category");
         service.updateCategory(category);
-        Category updatedCategory = service.getCategoryById(5);
+        Category updatedCategory = service.getCategoryById(6);
         assertNotNull(updatedCategory);
         assertEquals("Updated Test category", updatedCategory.getName());
     }
 
     @Test
     public void testReadCategory() {
-        Category category = service.getCategoryById(5);
+        Category category = service.getCategoryById(6);
         assertNotNull(category);
         assertEquals("Updated Test category", category.getName());
     }
 
     @Test
     public void testDeleteCategory() {
-        Category categoryBeforeDeletion = service.getCategoryById(5);
+        Category categoryBeforeDeletion = service.getCategoryById(6);
         assertNotNull(categoryBeforeDeletion);
-        service.deleteCategory(5);
+        service.deleteCategory(6);
     }
 }

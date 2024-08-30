@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.models.Category;
-import org.example.repository.interf.CategoryRepository;
+import org.example.repository.impl.CategoryRepositoryImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class CategoryService {
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryRepositoryImpl categoryRepository;
 
-    public CategoryService(CategoryRepository repository) {
+    public CategoryService(CategoryRepositoryImpl repository) {
         this.categoryRepository = repository;
     }
 

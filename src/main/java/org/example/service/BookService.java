@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.models.Book;
-import org.example.repository.interf.BookRepository;
+import org.example.repository.impl.BookRepositoryImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class BookService {
     @Autowired
-    private BookRepository bookRepository;
+    private BookRepositoryImpl bookRepository;
 
-    public BookService(BookRepository repository) {
+    public BookService(BookRepositoryImpl repository) {
         this.bookRepository = repository;
     }
 
